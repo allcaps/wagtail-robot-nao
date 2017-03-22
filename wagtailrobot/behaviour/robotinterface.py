@@ -75,13 +75,13 @@ class NaoConnection(object):
 
     @cached_property
     def postureProxy(self):
-        alive = self.session.service("ALRobotPosture")
-        alive.setBackgroundStrategy('backToNeutral')
-        return alive
+        return self.session.service("ALRobotPosture")
 
     @cached_property
     def alive(self):
-        return self.session.service("ALAutonomousMoves")
+        alive = self.session.service("ALAutonomousMoves")
+        alive.setBackgroundStrategy('backToNeutral')
+        return alive
 
     @cached_property
     def selfaware(self):
@@ -151,7 +151,8 @@ def main():
     try:
         conn = NaoConnection()
         conn.findFaces()
-        #conn.voice.say("I got some \\pau=1\\ \\emph=2\\ \\vol=150\\swag, \\vol=100\\\\emph=0\\\\rspd=50\\don't it \\emph=2\\bieaahtch")
+        conn.alive
+        conn.voice.say("I got some \\pau=1\\ \\emph=2\\ \\vol=150\\swag, \\vol=100\\\\emph=0\\\\rspd=50\\don't it \\emph=2\\bieaahtch")
         conn.takePicturePNG('henk.png')
         print "jjkh"
         # for a in ANIMATIONS:
