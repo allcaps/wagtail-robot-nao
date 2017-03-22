@@ -67,6 +67,8 @@ MIDDLEWARE = [
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+
+    'home.middleware.PageViewMiddleware',
 ]
 
 ROOT_URLCONF = 'robotnao.urls'
