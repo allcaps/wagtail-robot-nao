@@ -1,9 +1,11 @@
 from django.contrib.auth.signals import user_logged_in, user_logged_out
+from django.core.files import File
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from .models import HomePage
 from wagtail.wagtailcore.signals import page_published
+from wagtail.wagtailimages.models import Image
 
 from wagtailrobot.behaviour.robotinterface import NaoConnection
 conn = NaoConnection()
@@ -15,6 +17,11 @@ def say_hello(sender, user, request, **kwargs):
     if not name:
         name = user.username
     conn.voice.say("Hello {}".format(name))
+    conn.findFaces()
+    img = conn.takePicturePNG(name)
+    image = Image(file=img, title=name)
+    image.save()
+    conn.stopFindingFaces()
     conn.voice.say("Now that you are logged in, please create a page.")
 
 
@@ -38,4 +45,5 @@ def say_stupid(sender, instance, revision, **kwargs):
     word = 'cool'
     if 'page' in title or 'title' in title:
         word = 'stupid'
+        # conn.play('animations/Stand/Emotions/Negative/Angry_1')
     conn.voice.say("{} is a {} title for a page".format(title, word))
