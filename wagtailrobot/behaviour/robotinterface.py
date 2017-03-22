@@ -4,7 +4,9 @@ import time
 import vision_definitions
 
 from django.conf import settings
+from django.core.files.images import ImageFile
 from django.utils.functional import cached_property
+from django.utils.six import BytesIO
 from mock import MagicMock
 from PIL import Image
 
@@ -118,7 +120,7 @@ class NaoConnection(object):
     def camera(self):
         return self.session.service("ALVideoDevice")
 
-    def takePicturePNG(self, filepath):
+    def takePicturePNG(self, name):
         resolution = vision_definitions.k4VGA
         colorSpace = vision_definitions.kRGBColorSpace
         fps = 5
@@ -128,12 +130,14 @@ class NaoConnection(object):
         imageWidth = pic[0]
         imageHeight = pic[1]
         array = pic[6]
+        f = BytesIO()
 
         # Create a PIL Image from our pixel array.
         im = Image.frombytes("RGB", (imageWidth, imageHeight), str(array))
 
         # Save the image.
-        im.save(filepath, "PNG")
+        im.save(f, "PNG")
+        return ImageFile(f, name='{}.png'.format(name))
 
     @cached_property
     def animation(self):
@@ -145,7 +149,6 @@ class NaoConnection(object):
             self.postureProxy.goToPosture("Stand", 1.0)
         elif name.startswith("animations/Sit/") and not "Sit" in posture:
             self.postureProxy.goToPosture("Sit", 1.0)
-        
         self.animation.runBehavior(name)
 
     def say(self, message, **kwargs):
