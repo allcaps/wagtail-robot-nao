@@ -1,4 +1,4 @@
-from django.contrib.auth.signals import user_logged_in, user_logged_out
+from django.contrib.auth.signals import user_logged_in, user_logged_out, user_login_failed
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -39,3 +39,8 @@ def say_stupid(sender, instance, revision, **kwargs):
     if 'page' in title or 'title' in title:
         word = 'stupid'
     conn.voice.say("{} is a {} title for a page".format(title, word))
+
+
+@receiver(user_login_failed)
+def give_password_hint(*args, **kwargs):
+    conn.voice.say("1? 2? 3? Is really your password? That can't be secure! Try: 1, 2, 3, 4!")

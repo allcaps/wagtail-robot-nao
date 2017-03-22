@@ -1,10 +1,12 @@
+import io
 import qi
 import time
-import io
 import vision_definitions
-from PIL import Image
 
+from django.conf import settings
 from django.utils.functional import cached_property
+from mock import MagicMock
+from PIL import Image
 
 ANIMATIONS = [
     "animations/Stand/Emotions/Negative/Angry_1",
@@ -62,7 +64,10 @@ ANIMATIONS = [
 
 class NaoConnection(object):
     def __init__(self):
-        self.app = qi.Application(url="tcp://172.16.0.107:9559")
+        if getattr(settings, "NAO_MOCK", False):
+            self.app = MagicMock()
+        else:
+            self.app = qi.Application(url="tcp://172.16.0.107:9559")
         self.app.start()
         self.session = self.app.session
 
@@ -166,4 +171,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
