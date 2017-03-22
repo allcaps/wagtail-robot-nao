@@ -15,4 +15,4 @@ Getting started Wagtail
     python manage.py createsuperuser
     python manage.py runserver 0.0.0.0:8000
     
-    Share your ip with people in the same network
+Share your ip with people in the same network.
