@@ -17,6 +17,7 @@ def say_hello(sender, user, request, **kwargs):
     if not name:
         name = user.username
     conn.voice.say("Hello {}".format(name))
+    conn.play("animations/Sit/Emotions/Neutral/AskForAttention_1")
     conn.findFaces()
     img = conn.takePicturePNG(name)
     image = Image(file=img, title=name)
@@ -45,5 +46,5 @@ def say_stupid(sender, instance, revision, **kwargs):
     word = 'cool'
     if 'page' in title or 'title' in title:
         word = 'stupid'
-        # conn.play('animations/Stand/Emotions/Negative/Angry_1')
+        conn.play('animations/Stand/Emotions/Negative/Angry_1')
     conn.voice.say("{} is a {} title for a page".format(title, word))
