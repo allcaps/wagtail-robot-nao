@@ -1,5 +1,9 @@
 from django.contrib.auth.signals import user_logged_in, user_logged_out
+from django.db.models.signals import post_save
 from django.dispatch import receiver
+
+from .models import HomePage
+from wagtail.wagtailcore.signals import page_published
 
 from wagtailrobot.behaviour.robotinterface import NaoConnection
 conn = NaoConnection()
@@ -11,6 +15,7 @@ def say_hello(sender, user, request, **kwargs):
     if not name:
         name = user.username
     conn.voice.say("Hello {}".format(name))
+    conn.voice.say("Now that you are logged in, please create a page.")
 
 
 @receiver(user_logged_out)
@@ -19,3 +24,18 @@ def say_goodby(sender, user, request, **kwargs):
     if not name:
         name = user.username
     conn.voice.say("Goodbye {}".format(name))
+
+
+@receiver(post_save, sender=HomePage)
+def not_live(sender, instance, **kwargs):
+    if not instance.live:
+        conn.voice.say("Nice, but your page is not published yet!")
+
+
+@receiver(page_published)
+def say_stupid(sender, instance, revision, **kwargs):
+    title = instance.title
+    word = 'cool'
+    if 'page' in title or 'title' in title:
+        word = 'stupid'
+    conn.voice.say("{} is a {} title for a page".format(title, word))
