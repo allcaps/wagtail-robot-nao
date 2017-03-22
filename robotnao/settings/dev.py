@@ -2,6 +2,8 @@ from __future__ import absolute_import, unicode_literals
 
 from .base import *
 
+ALLOWED_HOSTS = ['*']
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
