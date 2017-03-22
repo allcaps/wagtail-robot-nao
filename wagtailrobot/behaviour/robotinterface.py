@@ -1,4 +1,5 @@
 import qi
+import time
 
 from django.utils.functional import cached_property
 
@@ -71,7 +72,28 @@ class NaoConnection(object):
 
     @cached_property
     def postureProxy(self):
-        return self.session.service("ALRobotPosture")
+        alive = self.session.service("ALRobotPosture")
+        alive.setBackgroundStrategy('backToNeutral')
+        return alive
+
+    @cached_property
+    def alive(self):
+        return self.session.service("ALAutonomousMoves")
+
+    @cached_property
+    def selfaware(self):
+        return self.session.service("ALBasicAwareness")
+
+    @cached_property
+    def motion(self):
+        return self.session.service("ALMotion")
+
+    def findFaces(self):
+        self.motion.wakeUp()
+        if not self.selfaware.isAwarenessRunning():
+            self.selfaware.startAwareness()
+        if not self.alive.getExpressiveListeningEnabled():
+            self.alive.setExpressiveListeningEnabled(True)
 
     @cached_property
     def animation(self):
@@ -93,10 +115,14 @@ class NaoConnection(object):
 def main():
 
     conn = NaoConnection()
+    conn.findFaces()
+
+    while True:
+        time.sleep(10)
     # conn.voice.say("I got some swag, don't it")
-    for a in ANIMATIONS:
-        print a
-        conn.play(a)
+    # for a in ANIMATIONS:
+    #     print a
+    #     conn.play(a)
 
 if __name__ == '__main__':
     main()
