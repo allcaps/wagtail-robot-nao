@@ -1,9 +1,22 @@
 {% extends "base.html" %}
-{% load i18n crispy_forms_tags %}
 
 {% block content %}
+    <h1>The Wagtail Experience</h1>
+    <p class="lead">Learn content management in 5 minutes.</p>
+    <div class="jumbotron">
+        <form method="post" autocomplete="off" novalidate>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form-group form-group-lg">
+                <label for="{{ form.name.id_for_label }}">What is your name?</label>
+                {{ form.name }}
+                {% if form.name.errors %}{{ form.name.errors }}{% endif %}
+            </div>
 
-    <h1>The Content Mangement Reseach Experience</h1>
-    {% crispy form %}
-
+            <button type="submit" class="btn btn-primary btn-lg">Start</button>
+        </form>
+        <script>
+            document.getElementById("id_name").focus();
+        </script>
+    </div>
 {% endblock %}

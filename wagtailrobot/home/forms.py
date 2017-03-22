@@ -5,19 +5,8 @@ from django import forms
 
 
 class StartForm(forms.Form):
-    name = forms.CharField(max_length=255, label="Your name")
-
-    def __init__(self, *args, **kwargs):
-        super(StartForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Field('name'),
-            Div(
-                StrictButton(
-                    'Start',
-                    css_class='submit-widget button-field btn btn-primary',
-                    type='submit'
-                ),
-                css_class='formControls'
-            ),
-        )
+    name = forms.CharField(
+        max_length=255,
+        label="What is your name?",
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )

@@ -23,6 +23,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 NAO_MOCK = True
 
+COMPRESS_ENABLED = True
+
 try:
     from .local import *
 except ImportError:
