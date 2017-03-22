@@ -3,7 +3,7 @@ from views import StartView, CredentialView
 
 urlpatterns = [
     url(
-        r'^start/$',
+        r'^$',
         StartView.as_view(),
         name='start'
     ),
