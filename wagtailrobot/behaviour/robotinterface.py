@@ -1,5 +1,8 @@
 import qi
 import time
+import io
+import vision_definitions
+from PIL import Image
 
 from django.utils.functional import cached_property
 
@@ -95,6 +98,38 @@ class NaoConnection(object):
         if not self.alive.getExpressiveListeningEnabled():
             self.alive.setExpressiveListeningEnabled(True)
 
+    def stop(self):
+        if self.animation.getRunningBehaviors():
+            self.animation.stopAllBehaviors()
+        self.stopFindingFaces()
+
+    def stopFindingFaces(self):
+        if self.selfaware.isAwarenessRunning():
+            self.selfaware.stopAwareness()
+        if self.alive.getExpressiveListeningEnabled():
+            self.alive.setExpressiveListeningEnabled(False)
+
+    @cached_property
+    def camera(self):
+        return self.session.service("ALVideoDevice")
+
+    def takePicturePNG(self, filepath):
+        resolution = vision_definitions.k4VGA
+        colorSpace = vision_definitions.kRGBColorSpace
+        fps = 5
+        nameId = self.camera.subscribe("python_GVM", resolution, colorSpace, fps)
+        pic = self.camera.getImageRemote(nameId)
+        self.camera.unsubscribe(nameId)
+        imageWidth = pic[0]
+        imageHeight = pic[1]
+        array = pic[6]
+
+        # Create a PIL Image from our pixel array.
+        im = Image.frombytes("RGB", (imageWidth, imageHeight), str(array))
+
+        # Save the image.
+        im.save(filepath, "PNG")
+
     @cached_property
     def animation(self):
         return self.session.service("ALBehaviorManager")
@@ -113,16 +148,20 @@ class NaoConnection(object):
 
 
 def main():
+    try:
+        conn = NaoConnection()
+        conn.findFaces()
+        #conn.voice.say("I got some \\pau=1\\ \\emph=2\\ \\vol=150\\swag, \\vol=100\\\\emph=0\\\\rspd=50\\don't it \\emph=2\\bieaahtch")
+        conn.takePicturePNG('henk.png')
+        print "jjkh"
+        # for a in ANIMATIONS:
+        #     print a
+        #     conn.play(a)
 
-    conn = NaoConnection()
-    conn.findFaces()
-
-    while True:
-        time.sleep(10)
-    # conn.voice.say("I got some swag, don't it")
-    # for a in ANIMATIONS:
-    #     print a
-    #     conn.play(a)
+        while True:
+            time.sleep(10)
+    except KeyboardInterrupt:
+        conn.stop()
 
 if __name__ == '__main__':
     main()

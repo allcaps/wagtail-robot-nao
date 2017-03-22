@@ -25,6 +25,7 @@ setup(
     # specify dependencies
     install_requires=[
         'setuptools',
-        'wagtail'
+        'wagtail',
+        'Pillow'
     ],
 )
