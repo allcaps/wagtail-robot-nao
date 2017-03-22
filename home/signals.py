@@ -1,23 +1,6 @@
-import qi
-
-from django.utils.functional import cached_property
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 
-
-class NaoConnection(object):
-    def __init__(self):
-        self.app = qi.Application(url="tcp://koe.local:9559")
-        self.app.start()
-        self.session = self.app.session
-
-    @cached_property
-    def voice(self):
-        return self.session.service("ALTextToSpeech")
-
-    def say(self, message, **kwargs):
-        return self.voice.say(message, **kwargs)
-
-
+from wagtailrobot.behaviour.robotinterface import NaoConnection
 conn = NaoConnection()
 
 

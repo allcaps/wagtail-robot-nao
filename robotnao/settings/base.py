@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     'home',
     'search',
 
+    'crispy_forms',
+    'django_extensions',
+
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
     'wagtail.wagtailembeds',
