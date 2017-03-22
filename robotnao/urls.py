@@ -10,7 +10,7 @@ from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 urlpatterns = [
-    url(r'^start/', include('home.urls', namespace='home')),
+    url(r'^', include('home.urls', namespace='home')),
 
     url(r'^django-admin/', include(admin.site.urls)),
 
