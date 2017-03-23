@@ -30,3 +30,12 @@ img {
     margin-bottom: .5em
   }
 }
+
+.block-intro {
+  @extend .lead;
+}
+
+.block-image img {
+  @extend .img-responsive;
+  margin-bottom: 1em;
+}

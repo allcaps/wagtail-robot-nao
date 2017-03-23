@@ -58,7 +58,7 @@ def give_comment_on_page_title(sender, instance, revision, **kwargs):
         adjective = _("stupid")
         conn.play('animations/Stand/Emotions/Negative/Angry_1')
     conn.voice.say(_("{title} is a {adjective} title for a page").format(title=title, adjective=adjective))
-    conn.voice.say(_("Your page is now published. View it by clicking \\pau=1\\ \\emph=2\\ view live."))
+    conn.voice.say(_("Your page is now published. It is the top item in the list. View it by clicking \\pau=1\\ \\emph=3\\ live. The live button is in the status column."))
 
 
 @receiver(user_login_failed)

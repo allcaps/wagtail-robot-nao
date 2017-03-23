@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 10:47+0000\n"
+"POT-Creation-Date: 2017-03-23 11:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +28,9 @@ msgstr "Hallo {name}"
 
 #: home/signals.py:36
 msgid "Create a page: Add a title, image and click \\emph=2\\ 'Save draft'."
-msgstr "Maak een pagina: Voeg een titel en afbeelding toe en klik op \\emph=2\\ 'Concept bewaren'."
+msgstr ""
+"Maak een pagina: Voeg een titel en afbeelding toe en klik op \\emph=2\\ "
+"'Concept bewaren'."
 
 #: home/signals.py:44
 #, python-brace-format
@@ -62,12 +63,13 @@ msgid "{title} is a {adjective} title for a page"
 msgstr "{title} is een {adjective} titel voor een pagina."
 
 #: home/signals.py:61
+#| msgid ""
 msgid ""
-"Your page is now published. View it by clicking \\pau=1\\ \\emph=2\\ view "
-"live."
+"Your page is now published. It is the top item in the list. View it by "
+"clicking \\pau=1\\ \\emph=3\\ live. The live button is in the status column."
 msgstr ""
-"Je pagina is nu gepubliceerd. Bekijk hem door op \\pau=1\\ \\emph=2\\ bekijk "
-"live te klikken."
+"Je pagina is nu gepubliceerd. Het is het bovenste item in de lijst. Bekijk hem door op \\pau=1\\ \\emph=2\\ live "
+"te klikken. Het live knopje staat in de statuskolom."
 
 #: home/signals.py:66
 msgid ""
