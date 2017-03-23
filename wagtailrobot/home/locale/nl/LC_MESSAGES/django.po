@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 11:06+0000\n"
+"POT-Creation-Date: 2017-03-23 12:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,60 +18,73 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: home/middleware.py:17
-msgid "Do you like your page, {}?"
-msgstr "Vind je je pagina {} mooi?"
+#| msgid "Do you like your page, {}?"
+msgid "Do you like your page?"
+msgstr "En? Is de pagina naar wens?"
+
+#: home/middleware.py:18
+msgid "I think it is awesome! LETS PARTY!"
+msgstr "Ik vind hem super vet! Laten we een feestje bouwen"
+
+#: home/middleware.py:19
+msgid "Dear {}... May I have this dance?"
+msgstr "Beste {}... Wil je met me dansen?"
+
+#: home/middleware.py:21
+msgid "That was fun. Thank you very much! Hope to see you soon!"
+msgstr "Dat was leuk! Heel erg hartelijk bedankt! Tot ziens!"
 
 #: home/signals.py:29
 #, python-brace-format
 msgid "Hello {name}"
 msgstr "Hallo {name}"
 
-#: home/signals.py:36
+#: home/signals.py:32
 msgid "Create a page: Add a title, image and click \\emph=2\\ 'Save draft'."
 msgstr ""
 "Maak een pagina: Voeg een titel en afbeelding toe en klik op \\emph=2\\ "
 "'Concept bewaren'."
 
-#: home/signals.py:44
+#: home/signals.py:40
 #, python-brace-format
 msgid "Goodbye {name}"
 msgstr "Dag {name}"
 
-#: home/signals.py:50
+#: home/signals.py:47
 msgid "Nice, but your page is not published yet!"
 msgstr "Mooi, maar je pagina is nog niet gepubliceerd!"
 
-#: home/signals.py:56
+#: home/signals.py:53
 msgid "cool"
 msgstr "gave"
 
-#: home/signals.py:57
+#: home/signals.py:54
 msgid "page"
 msgstr "pagina"
 
-#: home/signals.py:57
+#: home/signals.py:54
 msgid "title"
 msgstr "titel"
 
-#: home/signals.py:58
+#: home/signals.py:55
 msgid "stupid"
 msgstr "stomme"
 
-#: home/signals.py:60
+#: home/signals.py:57
 #, python-brace-format
 msgid "{title} is a {adjective} title for a page"
 msgstr "{title} is een {adjective} titel voor een pagina."
 
-#: home/signals.py:61
-#| msgid ""
+#: home/signals.py:58
 msgid ""
 "Your page is now published. It is the top item in the list. View it by "
 "clicking \\pau=1\\ \\emph=3\\ live. The live button is in the status column."
 msgstr ""
-"Je pagina is nu gepubliceerd. Het is het bovenste item in de lijst. Bekijk hem door op \\pau=1\\ \\emph=2\\ live "
-"te klikken. Het live knopje staat in de statuskolom."
+"Je pagina is nu gepubliceerd. Het is het bovenste item in de lijst. Bekijk "
+"hem door op \\pau=1\\ \\emph=2\\ live te klikken. Het live knopje staat in "
+"de statuskolom."
 
-#: home/signals.py:66
+#: home/signals.py:63
 msgid ""
 "1? 2? 3? Is really your password? That can't be secure! Try: 1. 2. 3. "
 "\\pau=2\\ \\emph=2\\ 4!"
