@@ -1,4 +1,12 @@
 db.sqlite3
-pynaoqi-python2.7-2.1.4.13-mac64/
+pynaoqi-*
 media/
 /static/
+*.pyc
+*.mo
+pip-selfcheck.json
+lib/
+include/
+bin/
+.Python
+local.py
