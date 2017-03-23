@@ -15,8 +15,6 @@ from .models import Page
 
 conn = NaoConnection()
 
-import ipdb; ipdb.set_trace()
-
 if 'nl' in settings.LANGUAGE_CODE:
     conn.voice.setLanguage('Dutch')
 else:
