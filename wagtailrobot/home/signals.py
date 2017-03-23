@@ -43,7 +43,7 @@ def say_goodby(sender, user, request, **kwargs):
 def not_live(sender, instance, **kwargs):
     if (instance.revisions.count() == 1 and not instance.live) or \
        (instance.live and instance.has_unpublished_changes):
-        conn.voice.say(_("Nice, but your page is not published yet!"))
+        start_new_thread(conn.voice.say, (_("Nice, but your page is not published yet! Click on the upward arrow next to 'Save Draft' and select 'Publish'"),))
 
 
 @receiver(page_published)
@@ -54,11 +54,12 @@ def give_comment_on_page_title(sender, instance, revision, **kwargs):
         adjective = _("stupid")
         start_new_thread(conn.playAsync, ("animations/Stand/Emotions/Negative/Angry_1",))
     conn.voice.say(_("{title} is a {adjective} title for a page").format(title=title, adjective=adjective))
-    conn.voice.say(_("Your page is now published. It is the top item in the list. View it by clicking \\pau=1\\ \\emph=3\\ live. The live button is in the status column."))
+    start_new_thread(conn.voice.say, (_("Your page is now published. It is the top item in the list. View it by clicking \\pau=1\\ \\emph=3\\ live. The live button is in the status column."),))
 
 
 @receiver(user_login_failed)
 def give_password_hint(*args, **kwargs):
+    conn.motion.wakeUp()
     conn.findFaces()
     name = kwargs['credentials']['username']
     start_new_thread(conn.asyncTakePicturePNG, (name,))

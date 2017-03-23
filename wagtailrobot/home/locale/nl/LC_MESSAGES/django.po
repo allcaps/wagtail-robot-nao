@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 12:50+0000\n"
+"POT-Creation-Date: 2017-03-23 13:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,65 +17,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: home/middleware.py:17
-#| msgid "Do you like your page, {}?"
+#: middleware.py:11
 msgid "Do you like your page?"
-msgstr "En? Is de pagina naar wens?"
+msgstr "Vind je je pagina mooi?"
 
-#: home/middleware.py:18
+#: middleware.py:12
 msgid "I think it is awesome! LETS PARTY!"
-msgstr "Ik vind hem super vet! Laten we een feestje bouwen"
+msgstr "Ik vind hem geweldig! LATEN WE EEN FEESTJE BOUWEN!"
 
-#: home/middleware.py:19
+#: middleware.py:13
 msgid "Dear {}... May I have this dance?"
-msgstr "Beste {}... Wil je met me dansen?"
+msgstr "Lieve {}... Mag ik deze dans van u?"
 
-#: home/middleware.py:21
+#: middleware.py:15
 msgid "That was fun. Thank you very much! Hope to see you soon!"
-msgstr "Dat was leuk! Heel erg hartelijk bedankt! Tot ziens!"
+msgstr "Dat was leuk. Heel erg bedankt! Ik hoop je snel nog eens te zien."
 
-#: home/signals.py:29
+#: signals.py:30
 #, python-brace-format
 msgid "Hello {name}"
 msgstr "Hallo {name}"
 
-#: home/signals.py:32
+#: signals.py:31
 msgid "Create a page: Add a title, image and click \\emph=2\\ 'Save draft'."
 msgstr ""
 "Maak een pagina: Voeg een titel en afbeelding toe en klik op \\emph=2\\ "
-"'Concept bewaren'."
+"'Bewaar concept'."
 
-#: home/signals.py:40
+#: signals.py:39
 #, python-brace-format
 msgid "Goodbye {name}"
 msgstr "Dag {name}"
 
-#: home/signals.py:47
-msgid "Nice, but your page is not published yet!"
-msgstr "Mooi, maar je pagina is nog niet gepubliceerd!"
+#: signals.py:46
+msgid ""
+"Nice, but your page is not published yet! Click on the upward arrow next to "
+"'Save Draft' and select 'Publish'"
+msgstr ""
+"Mooi, maar je pagina is nog niet gepubliceerd! Klik op het pijltje omhoog "
+"naast 'Bewaar concept' en selecteer 'Publiceer'"
 
-#: home/signals.py:53
+#: signals.py:52
 msgid "cool"
 msgstr "gave"
 
-#: home/signals.py:54
+#: signals.py:53
 msgid "page"
 msgstr "pagina"
 
-#: home/signals.py:54
+#: signals.py:53
 msgid "title"
 msgstr "titel"
 
-#: home/signals.py:55
+#: signals.py:54
 msgid "stupid"
 msgstr "stomme"
 
-#: home/signals.py:57
+#: signals.py:56
 #, python-brace-format
 msgid "{title} is a {adjective} title for a page"
 msgstr "{title} is een {adjective} titel voor een pagina."
 
-#: home/signals.py:58
+#: signals.py:57
 msgid ""
 "Your page is now published. It is the top item in the list. View it by "
 "clicking \\pau=1\\ \\emph=3\\ live. The live button is in the status column."
@@ -84,7 +87,7 @@ msgstr ""
 "hem door op \\pau=1\\ \\emph=2\\ live te klikken. Het live knopje staat in "
 "de statuskolom."
 
-#: home/signals.py:63
+#: signals.py:65
 msgid ""
 "1? 2? 3? Is really your password? That can't be secure! Try: 1. 2. 3. "
 "\\pau=2\\ \\emph=2\\ 4!"
@@ -92,37 +95,34 @@ msgstr ""
 "1? 2? 3? Is dat \\emph=2\\ echt je wachtwoord? Dat kan niet veilig zijn! "
 "Probeer 1. 2. 3. \\pau=2\\ \\emph=2\\  4!"
 
-#: home/templates/home/credentials.html:6
+#: templates/home/credentials.html:6
 msgid "Your credentials"
 msgstr "Jouw inloggegevens"
 
-#: home/templates/home/credentials.html:9
+#: templates/home/credentials.html:9
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: home/templates/home/credentials.html:11
+#: templates/home/credentials.html:11
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: home/templates/home/credentials.html:14
+#: templates/home/credentials.html:14
 msgid "Go to login page"
 msgstr "Ga naar inloggen"
 
-#: home/templates/home/start.html:5
+#: templates/home/start.html:5
 msgid "The Wagtail Experience"
 msgstr "Het Wagtail-avontuur"
 
-#: home/templates/home/start.html:6
+#: templates/home/start.html:6
 msgid "Learn content management in two minutes."
 msgstr "Websites beheren in twee minuten."
 
-#: home/templates/home/start.html:12
+#: templates/home/start.html:12
 msgid "What is your firstname?"
 msgstr "Wat is je voornaam?"
 
-#: home/templates/home/start.html:17
+#: templates/home/start.html:17
 msgid "Start"
 msgstr "Start"
-
-#~ msgid "Now that you are logged in, please create a page."
-#~ msgstr "Nu je ingelogd bent, maak eens een pagina aan."
