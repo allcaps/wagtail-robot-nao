@@ -1,6 +1,5 @@
 from __future__ import absolute_import, unicode_literals
 
-import time
 from django.utils.deprecation import MiddlewareMixin
 from django.utils.translation import ugettext as _
 
@@ -22,4 +21,3 @@ class PageViewMiddleware(MiddlewareMixin):
         conn.voice.say(_("That was fun. Thank you very much! Hope to see you soon!"))
 
         return response
-

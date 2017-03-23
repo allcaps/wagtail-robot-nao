@@ -9,6 +9,7 @@ from django.utils.functional import cached_property
 from django.utils.six import BytesIO
 from mock import MagicMock
 from PIL import Image
+from wagtail.wagtailimages.models import Image as WagtailImage
 
 ANIMATIONS = [
     "animations/Stand/Emotions/Negative/Angry_1",
@@ -121,6 +122,9 @@ class NaoConnection(object):
     def camera(self):
         return self.session.service("ALVideoDevice")
 
+    def asyncTakePicturePNG(self, name):
+        qi.async(self.takePicturePNG, name)
+
     def takePicturePNG(self, name):
         resolution = vision_definitions.k4VGA
         colorSpace = vision_definitions.kRGBColorSpace
@@ -138,11 +142,16 @@ class NaoConnection(object):
 
         # Save the image.
         im.save(f, "PNG")
-        return ImageFile(f, name='{}.png'.format(name))
+        img = ImageFile(f, name='{}.png'.format(name))
+        image = WagtailImage(file=img, title=name)
+        image.save()
 
     @cached_property
     def animation(self):
         return self.session.service("ALBehaviorManager")
+
+    def playAsync(self, name):
+        qi.async(self.play, name)
 
     def play(self, name):
         posture = self.postureProxy.getPosture()
@@ -152,17 +161,17 @@ class NaoConnection(object):
             self.postureProxy.goToPosture("Sit", 1.0)
         self.animation.runBehavior(name)
 
-    def say(self, message, **kwargs):
-        return self.voice.say(message, **kwargs)
+    def say(self, message):
+        return self.voice.say(message, _async=True)
 
 
 def main():
     try:
         conn = NaoConnection()
         conn.findFaces()
-        conn.alive
-        conn.voice.say("I got some \\pau=1\\ \\emph=2\\ \\vol=150\\swag, \\vol=100\\\\emph=0\\\\rspd=50\\don't it \\emph=2\\bieaahtch")
-        conn.takePicturePNG('henk.png')
+        #conn.alive
+        #conn.voice.say("I got some \\pau=1\\ \\emph=2\\ \\vol=150\\swag, \\vol=100\\\\emph=0\\\\rspd=50\\don't it \\emph=2\\bieaahtch")
+        #conn.takePicturePNG('henk.png')
         print "jjkh"
         # for a in ANIMATIONS:
         #     print a
