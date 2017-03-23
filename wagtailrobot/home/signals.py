@@ -33,7 +33,7 @@ def say_hello(sender, user, request, **kwargs):
     image = Image(file=img, title=name)
     image.save()
     conn.stopFindingFaces()
-    conn.voice.say(_("Now that you are logged in, please create a page."))
+    conn.voice.say(_("Create a page."))
 
 
 @receiver(user_logged_out)
@@ -58,8 +58,9 @@ def give_comment_on_page_title(sender, instance, revision, **kwargs):
         adjective = _("stupid")
         conn.play('animations/Stand/Emotions/Negative/Angry_1')
     conn.voice.say(_("{title} is a {adjective} title for a page").format(title=title, adjective=adjective))
+    conn.voice.say(_("Your page is now published. View it by clicking \\pau=1\\ \\emph=2\\ view live."))
 
 
 @receiver(user_login_failed)
 def give_password_hint(*args, **kwargs):
-    conn.voice.say(_("1? 2? 3? Is really your password? That can't be secure! Try: 1, 2, 3, 4!"))
+    conn.voice.say(_("1? 2? 3? Is really your password? That can't be secure! Try: 1. 2. 3. \\pau=2\\ \\emph=2\\ 4!"))

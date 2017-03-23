@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 09:14+0000\n"
+"POT-Creation-Date: 2017-03-23 09:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,46 +21,53 @@ msgstr ""
 msgid "Do you like your page, {}?"
 msgstr ""
 
-#: signals.py:23
+#: signals.py:29
 #, python-brace-format
 msgid "Hello {name}"
 msgstr ""
 
-#: signals.py:30
-msgid "Now that you are logged in, please create a page."
+#: signals.py:36
+msgid "Create a page."
 msgstr ""
 
-#: signals.py:38
+#: signals.py:44
 #, python-brace-format
 msgid "Goodbye {name}"
 msgstr ""
 
-#: signals.py:44
+#: signals.py:50
 msgid "Nice, but your page is not published yet!"
 msgstr ""
 
-#: signals.py:50
+#: signals.py:56
 msgid "cool"
 msgstr ""
 
-#: signals.py:51
+#: signals.py:57
 msgid "page"
 msgstr ""
 
-#: signals.py:51
+#: signals.py:57
 msgid "title"
 msgstr ""
 
-#: signals.py:52
+#: signals.py:58
 msgid "stupid"
 msgstr ""
 
-#: signals.py:54
+#: signals.py:60
 #, python-brace-format
 msgid "{title} is a {adjective} title for a page"
 msgstr ""
 
-#: signals.py:59
+#: signals.py:61
 msgid ""
-"1? 2? 3? Is really your password? That can't be secure! Try: 1, 2, 3, 4!"
+"Your page is now published. View it by clicking \\pau=1\\ \\emph=2\\ view "
+"live."
+msgstr ""
+
+#: signals.py:66
+msgid ""
+"1? 2? 3? Is really your password? That can't be secure! Try: 1. 2. 3. "
+"\\pau=2\\ \\emph=2\\ 4!"
 msgstr ""
