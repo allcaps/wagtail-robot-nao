@@ -121,6 +121,9 @@ class NaoConnection(object):
     def camera(self):
         return self.session.service("ALVideoDevice")
 
+    def asyncTakePicturePNG(self, name):
+        qi.async(self.takePicturePNG, name)
+
     def takePicturePNG(self, name):
         resolution = vision_definitions.k4VGA
         colorSpace = vision_definitions.kRGBColorSpace
@@ -144,6 +147,9 @@ class NaoConnection(object):
     def animation(self):
         return self.session.service("ALBehaviorManager")
 
+    def playAsync(self, name):
+        qi.async(self.play, name)
+
     def play(self, name):
         posture = self.postureProxy.getPosture()
         if name.startswith("animations/Stand/") and not "Stand" in posture:
@@ -152,8 +158,8 @@ class NaoConnection(object):
             self.postureProxy.goToPosture("Sit", 1.0)
         self.animation.runBehavior(name)
 
-    def say(self, message, **kwargs):
-        return self.voice.say(message, **kwargs)
+    def say(self, message):
+        return self.voice.say(message, _async=True)
 
 
 def main():
