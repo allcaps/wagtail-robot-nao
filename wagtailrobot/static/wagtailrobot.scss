@@ -7,6 +7,11 @@ $jumbotron-bg: #fafafa;
   margin: 1em 0;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .errorlist {
   list-style-type: none;
   margin: 0;

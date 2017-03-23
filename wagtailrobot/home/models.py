@@ -14,15 +14,11 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsearch import index
 
 
-class ImageFormatChoiceBlock(FieldBlock):
-    field = forms.ChoiceField(choices=(
-        ('left', 'Wrap left'), ('right', 'Wrap right'), ('mid', 'Mid width'), ('full', 'Full width'),
-    ))
-
-
 class ImageBlock(StructBlock):
     image = ImageChooserBlock()
-    alignment = ImageFormatChoiceBlock()
+
+    class Meta:
+        template = 'home/blocks/image_block.html'
 
 
 class webappStreamBlock(StreamBlock):
