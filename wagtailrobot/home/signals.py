@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.signals import (
     user_logged_in,
     user_logged_out,
@@ -13,6 +14,11 @@ from wagtailrobot.behaviour.robotinterface import NaoConnection
 from .models import Page
 
 conn = NaoConnection()
+
+if 'nl' in settings.LANGUAGE_CODE:
+    conn.voice.setLanguage('Dutch')
+else:
+    conn.voice.setLanguage('English')
 
 
 @receiver(user_logged_in)

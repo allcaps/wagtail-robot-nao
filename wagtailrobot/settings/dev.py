@@ -25,6 +25,8 @@ NAO_MOCK = False
 
 COMPRESS_ENABLED = True
 
+# LANGUAGE_CODE = 'nl'  # 'en-us' or 'nl' or 'nl-nl'
+
 try:
     from .local import *
 except ImportError:
