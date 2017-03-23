@@ -24,11 +24,11 @@ class StartView(FormView):
         if duplicate_user:
             latest_duplicate = User.objects.filter(username__startswith=username).order_by('username').last()
             if '-' in latest_duplicate.username:
-                number = int(latest_duplicate.split('-')[1])
+                number = int(latest_duplicate.username.split('-')[1])
                 duplicate_user.username += "-{}".format(number + 1)
             else:
                 duplicate_user.username += "-1"
-                duplicate_user.save()
+            duplicate_user.save()
 
         self.request.session['name'] = name
         self.request.session['username'] = username
