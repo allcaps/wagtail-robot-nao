@@ -5,6 +5,7 @@ from django.contrib.auth.signals import (
 )
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils.translation import ugettext as _
 from wagtail.wagtailcore.signals import page_published
 from wagtail.wagtailimages.models import Image
 from wagtailrobot.behaviour.robotinterface import NaoConnection
@@ -19,14 +20,14 @@ def say_hello(sender, user, request, **kwargs):
     name = user.get_full_name()
     if not name:
         name = user.username
-    conn.voice.say("Hello {}".format(name))
+    conn.voice.say("_(Hello {})".format({'name': name}))
     conn.play("animations/Sit/Emotions/Neutral/AskForAttention_1")
     conn.findFaces()
     img = conn.takePicturePNG(name)
     image = Image(file=img, title=name)
     image.save()
     conn.stopFindingFaces()
-    conn.voice.say("Now that you are logged in, please create a page.")
+    conn.voice.say(_("Now that you are logged in, please create a page."))
 
 
 @receiver(user_logged_out)
@@ -40,19 +41,19 @@ def say_goodby(sender, user, request, **kwargs):
 @receiver(post_save, sender=Page)
 def not_live(sender, instance, **kwargs):
     if not instance.live:
-        conn.voice.say("Nice, but your page is not published yet!")
+        conn.voice.say(_("Nice, but your page is not published yet!"))
 
 
 @receiver(page_published)
-def say_stupid(sender, instance, revision, **kwargs):
+def give_comment_on_page_title(sender, instance, revision, **kwargs):
     title = instance.title
-    word = 'cool'
+    adjective = 'cool'
     if 'page' in title or 'title' in title:
-        word = 'stupid'
+        adjective = 'stupid'
         conn.play('animations/Stand/Emotions/Negative/Angry_1')
-    conn.voice.say("{} is a {} title for a page".format(title, word))
+    conn.voice.say(_("{title} is a {word} title for a page").format({'title': title, 'adjective': adjective}, ))
 
 
 @receiver(user_login_failed)
 def give_password_hint(*args, **kwargs):
-    conn.voice.say("1? 2? 3? Is really your password? That can't be secure! Try: 1, 2, 3, 4!")
+    conn.voice.say(_("1? 2? 3? Is really your password? That can't be secure! Try: 1, 2, 3, 4!"))

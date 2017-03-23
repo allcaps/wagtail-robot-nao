@@ -64,6 +64,7 @@ ANIMATIONS = [
     "animations/Sit/Waiting/Bored_1"
 ]
 
+
 class NaoConnection(object):
     def __init__(self):
         if getattr(settings, "NAO_MOCK", False):
@@ -77,7 +78,7 @@ class NaoConnection(object):
     def voice(self):
         voice = self.session.service("ALTextToSpeech")#pitchShift
         voice.setParameter("pitchShift", 1.0)
-        voice.setParameter("speed", 0.5)
+        voice.setParameter("speed", 100)
         return voice
 
     @cached_property
