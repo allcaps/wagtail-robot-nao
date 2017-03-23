@@ -160,9 +160,9 @@ def main():
     try:
         conn = NaoConnection()
         conn.findFaces()
-        conn.alive
-        conn.voice.say("I got some \\pau=1\\ \\emph=2\\ \\vol=150\\swag, \\vol=100\\\\emph=0\\\\rspd=50\\don't it \\emph=2\\bieaahtch")
-        conn.takePicturePNG('henk.png')
+        #conn.alive
+        #conn.voice.say("I got some \\pau=1\\ \\emph=2\\ \\vol=150\\swag, \\vol=100\\\\emph=0\\\\rspd=50\\don't it \\emph=2\\bieaahtch")
+        #conn.takePicturePNG('henk.png')
         print "jjkh"
         # for a in ANIMATIONS:
         #     print a
