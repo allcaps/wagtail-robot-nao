@@ -9,7 +9,7 @@ from wagtail.wagtailcore.signals import page_published
 from wagtail.wagtailimages.models import Image
 from wagtailrobot.behaviour.robotinterface import NaoConnection
 
-from .models import HomePage
+from .models import Page
 
 conn = NaoConnection()
 
@@ -37,7 +37,7 @@ def say_goodby(sender, user, request, **kwargs):
     conn.voice.say("Goodbye {}".format(name))
 
 
-@receiver(post_save, sender=HomePage)
+@receiver(post_save, sender=Page)
 def not_live(sender, instance, **kwargs):
     if not instance.live:
         conn.voice.say("Nice, but your page is not published yet!")
