@@ -3,7 +3,6 @@ pynaoqi-*
 media/
 /static/
 *.pyc
-*.mo
 pip-selfcheck.json
 lib/
 include/
