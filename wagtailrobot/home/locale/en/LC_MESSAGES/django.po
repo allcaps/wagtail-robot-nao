@@ -8,7 +8,7 @@ msgid "Hello {name}"
 msgstr ""
 
 #: home/signals.py:36
-msgid "Create a page."
+msgid "Create a page: Add a title, image and click \\emph=2\\ 'Save draft'."
 msgstr ""
 
 #: home/signals.py:44

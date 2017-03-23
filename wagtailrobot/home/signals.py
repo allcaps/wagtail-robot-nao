@@ -33,7 +33,7 @@ def say_hello(sender, user, request, **kwargs):
     image = Image(file=img, title=name)
     image.save()
     conn.stopFindingFaces()
-    conn.voice.say(_("Create a page."))
+    conn.voice.say(_("Create a page: Add a title, image and click \\emph=2\\ 'Save draft'."))
 
 
 @receiver(user_logged_out)
