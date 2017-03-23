@@ -16,3 +16,6 @@ class PageViewMiddleware(MiddlewareMixin):
 
         conn.voice.say(_("Do you like your page, {}?").format(page.title))
         return response
+
+    def process_view(self, request, view_func, *args, **kwargs):
+        pass

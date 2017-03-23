@@ -9,6 +9,7 @@ from django.utils.functional import cached_property
 from django.utils.six import BytesIO
 from mock import MagicMock
 from PIL import Image
+from wagtail.wagtailimages.models import Image as WagtailImage
 
 ANIMATIONS = [
     "animations/Stand/Emotions/Negative/Angry_1",
@@ -141,7 +142,9 @@ class NaoConnection(object):
 
         # Save the image.
         im.save(f, "PNG")
-        return ImageFile(f, name='{}.png'.format(name))
+        img = ImageFile(f, name='{}.png'.format(name))
+        image = WagtailImage(file=img, title=name)
+        image.save()
 
     @cached_property
     def animation(self):
