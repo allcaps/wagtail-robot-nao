@@ -28,7 +28,7 @@ def say_hello(sender, user, request, **kwargs):
     name = user.get_full_name()
     if not name:
         name = user.username
-    conn.voice.say("_(Hello {})".format({'name': name}))
+    conn.voice.say(_("Hello {name}").format(name=name))
     conn.play("animations/Sit/Emotions/Neutral/AskForAttention_1")
     conn.findFaces()
     img = conn.takePicturePNG(name)
@@ -43,7 +43,7 @@ def say_goodby(sender, user, request, **kwargs):
     name = user.get_full_name()
     if not name:
         name = user.username
-    conn.voice.say("Goodbye {}".format(name))
+    conn.voice.say(_("Goodbye {name}").format(name=name))
 
 
 @receiver(post_save, sender=Page)
@@ -55,11 +55,11 @@ def not_live(sender, instance, **kwargs):
 @receiver(page_published)
 def give_comment_on_page_title(sender, instance, revision, **kwargs):
     title = instance.title
-    adjective = 'cool'
-    if 'page' in title or 'title' in title:
-        adjective = 'stupid'
+    adjective = _("cool")
+    if _("page") in title or _("title") in title:
+        adjective = _("stupid")
         conn.play('animations/Stand/Emotions/Negative/Angry_1')
-    conn.voice.say(_("{title} is a {word} title for a page").format({'title': title, 'adjective': adjective}, ))
+    conn.voice.say(_("{title} is a {adjective} title for a page").format(title=title, adjective=adjective))
 
 
 @receiver(user_login_failed)
