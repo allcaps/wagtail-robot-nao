@@ -19,6 +19,17 @@ class StartView(FormView):
         name = form.cleaned_data.get('name')
         username = slugify(name).replace('-', '')
 
+        # Make sure the username is available by renaming existing users with the same username.
+        duplicate_user = User.objects.filter(username=username).first()
+        if duplicate_user:
+            latest_duplicate = User.objects.filter(username__startswith=username).order_by('username').last()
+            if '-' in latest_duplicate.username:
+                number = int(latest_duplicate.split('-')[1])
+                duplicate_user.username += "-{}".format(number + 1)
+            else:
+                duplicate_user.username += "-1"
+                duplicate_user.save()
+
         self.request.session['name'] = name
         self.request.session['username'] = username
 
