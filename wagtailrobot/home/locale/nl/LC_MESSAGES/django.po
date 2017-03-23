@@ -62,43 +62,6 @@ msgstr "stomme"
 msgid "{title} is a {adjective} title for a page"
 msgstr "{title} is een {adjective} titel voor een pagina."
 
-#: home/signals.py:65
-#: signals.py:29
-msgid "Hello {name}"
-msgstr "Hallo {name}"
-
-#: signals.py:36
-msgid "Create a page."
-msgstr "Maak een pagina aan."
-
-#: signals.py:44
-msgid "Goodbye {name}"
-msgstr "Dag {name}"
-
-#: signals.py:50
-msgid "Nice, but your page is not published yet!"
-msgstr "Mooi, maar je pagina is nog niet gepubliceerd!"
-
-#: signals.py:56
-msgid "cool"
-msgstr "gave"
-
-#: signals.py:57
-msgid "page"
-msgstr "pagina"
-
-#: signals.py:57
-msgid "title"
-msgstr "titel"
-
-#: signals.py:58
-msgid "stupid"
-msgstr "stomme"
-
-#: signals.py:60
-msgid "{title} is a {adjective} title for a page"
-msgstr "{title} is een {adjective} titel voor een pagina."
-
 #: signals.py:61
 msgid ""
 "Your page is now published. View it by clicking \\pau=1\\ \\emph=2\\ view "
