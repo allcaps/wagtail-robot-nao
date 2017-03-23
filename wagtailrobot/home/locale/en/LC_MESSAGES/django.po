@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 09:14+0000\n"
+"POT-Creation-Date: 2017-03-23 10:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,82 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: middleware.py:17
+#: home/middleware.py:17
 msgid "Do you like your page, {}?"
 msgstr ""
 
-#: signals.py:23
+#: home/signals.py:29
 #, python-brace-format
 msgid "Hello {name}"
 msgstr ""
 
-#: signals.py:30
+#: home/signals.py:36
 msgid "Now that you are logged in, please create a page."
 msgstr ""
 
-#: signals.py:38
+#: home/signals.py:44
 #, python-brace-format
 msgid "Goodbye {name}"
 msgstr ""
 
-#: signals.py:44
+#: home/signals.py:50
 msgid "Nice, but your page is not published yet!"
 msgstr ""
 
-#: signals.py:50
+#: home/signals.py:56
 msgid "cool"
 msgstr ""
 
-#: signals.py:51
+#: home/signals.py:57
 msgid "page"
 msgstr ""
 
-#: signals.py:51
+#: home/signals.py:57
 msgid "title"
 msgstr ""
 
-#: signals.py:52
+#: home/signals.py:58
 msgid "stupid"
 msgstr ""
 
-#: signals.py:54
+#: home/signals.py:60
 #, python-brace-format
 msgid "{title} is a {adjective} title for a page"
 msgstr ""
 
-#: signals.py:59
+#: home/signals.py:65
 msgid ""
 "1? 2? 3? Is really your password? That can't be secure! Try: 1, 2, 3, 4!"
+msgstr ""
+
+#: home/templates/home/credentials.html:6
+msgid "Your credentials"
+msgstr ""
+
+#: home/templates/home/credentials.html:9
+msgid "Username"
+msgstr ""
+
+#: home/templates/home/credentials.html:11
+msgid "Password"
+msgstr ""
+
+#: home/templates/home/credentials.html:14
+msgid "Go to login page"
+msgstr ""
+
+#: home/templates/home/start.html:5
+msgid "The Wagtail Experience"
+msgstr ""
+
+#: home/templates/home/start.html:6
+msgid "Learn content management in two minutes."
+msgstr ""
+
+#: home/templates/home/start.html:12
+msgid "What is your firstname?"
+msgstr ""
+
+#: home/templates/home/start.html:17
+msgid "Start"
 msgstr ""

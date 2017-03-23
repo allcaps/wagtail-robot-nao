@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 09:14+0000\n"
+"POT-Creation-Date: 2017-03-23 10:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,50 +18,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: middleware.py:17
+#: home/middleware.py:17
 msgid "Do you like your page, {}?"
 msgstr "Vind je je pagina {} mooi?"
 
-#: signals.py:23
+#: home/signals.py:29
+#, python-brace-format
 msgid "Hello {name}"
 msgstr "Hallo {name}"
 
-#: signals.py:30
+#: home/signals.py:36
 msgid "Now that you are logged in, please create a page."
 msgstr "Nu je ingelogd bent, maak eens een pagina aan."
 
-#: signals.py:38
+#: home/signals.py:44
+#, python-brace-format
 msgid "Goodbye {name}"
 msgstr "Dag {name}"
 
-#: signals.py:44
+#: home/signals.py:50
 msgid "Nice, but your page is not published yet!"
 msgstr "Mooi, maar je pagina is nog niet gepubliceerd!"
 
-#: signals.py:50
+#: home/signals.py:56
 msgid "cool"
 msgstr "gave"
 
-#: signals.py:51
+#: home/signals.py:57
 msgid "page"
 msgstr "pagina"
 
-#: signals.py:51
+#: home/signals.py:57
 msgid "title"
 msgstr "titel"
 
-#: signals.py:52
+#: home/signals.py:58
 msgid "stupid"
 msgstr "stomme"
 
-#: signals.py:54
+#: home/signals.py:60
 #, python-brace-format
 msgid "{title} is a {adjective} title for a page"
 msgstr "{title} is een {adjective} titel voor een pagina."
 
-#: signals.py:59
+#: home/signals.py:65
 msgid ""
 "1? 2? 3? Is really your password? That can't be secure! Try: 1, 2, 3, 4!"
 msgstr ""
-"1? 2? 3? Is echt je wachtwoord? Dat kan niet veilig zijn. Probeer 1, 2, 3, 4 "
-"eens!"
+"1? 2? 3? Is dat echt je wachtwoord? Dat kan niet veilig zijn! Probeer 1, 2, 3, 4!"
+
+#: home/templates/home/credentials.html:6
+msgid "Your credentials"
+msgstr "Jouw inloggegevens"
+
+#: home/templates/home/credentials.html:9
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: home/templates/home/credentials.html:11
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: home/templates/home/credentials.html:14
+msgid "Go to login page"
+msgstr "Ga naar inloggen"
+
+#: home/templates/home/start.html:5
+msgid "The Wagtail Experience"
+msgstr "Het Wagtail-avontuur"
+
+#: home/templates/home/start.html:6
+msgid "Learn content management in two minutes."
+msgstr "Websites beheren in twee minuten."
+
+#: home/templates/home/start.html:12
+msgid "What is your firstname?"
+msgstr "Wat is je voornaam?"
+
+#: home/templates/home/start.html:17
+msgid "Start"
+msgstr "Start"
